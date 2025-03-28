@@ -8,10 +8,13 @@ def run():
     pygame.display.set_caption("Космические защитники") #название окна игры
     bg_color = (0, 0, 0) #цвет экрана
     gun = Gun(screen)#добавили пушку
-    bullet
+    bullets = Group()
 
     while True:
-        controls.events(gun)
+        controls.events(screen, gun, bullets)
         gun.update_gun()
-        controls.update(bg_color, screen, gun)
+        bullets.update()
+        controls.update(bg_color, screen, gun, bullets)
+        controls.update_bullets(bullets)
+
 run()
